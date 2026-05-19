@@ -1,32 +1,32 @@
-# Demo 02: Binding & Events
+# Demo 02: 绑定与事件
 
-Demonstrates Wails v3 service binding with state management, multiple parameters, error handling, and the event system.
+演示 Wails v3 的服务绑定（含状态管理）、多参数方法、错误处理以及事件系统。
 
-## Features
+## 功能特性
 
-- **Counter Service**: Stateful service with increment/decrement/reset
-- **Calculator Service**: Methods with multiple params and error returns
-- **Event System**: Real-time time-tick events from Go to frontend
-- **Custom Events**: Frontend-to-backend event communication
+- **Counter 服务**：有状态的服务，支持递增/递减/重置
+- **Calculator 服务**：多参数方法和错误返回
+- **事件系统**：Go 后端实时向前端推送 time-tick 事件
+- **自定义事件**：前端向后端发送事件
 
-## Run
+## 运行方式
 
 ```bash
 cd frontend && npm install && cd ..
 wails3 dev
 ```
 
-## Key Concepts
+## 核心概念
 
-- Stateful services (counter persists across calls)
-- Error handling (divide by zero → rejected Promise)
-- Complex return types (maps, structs)
-- `window.EmitEvent()` for Go → Frontend events
-- `wails.EventsOn()` for listening to events in frontend
-- `wails.EventsEmit()` for Frontend → Go events
+- 有状态服务（计数器状态在多次调用间保持）
+- 错误处理（除以零 → 前端收到 rejected Promise）
+- 复杂返回类型（map、struct）
+- `EmitEvent()` 实现 Go → 前端 事件推送
+- `Events.On()` 在前端监听事件
+- `Events.Emit()` 从前端向 Go 发送事件
 
-## Tabs
+## 标签页
 
-1. **Counter**: Demonstrates stateful service binding
-2. **Calculator**: Demonstrates multi-param methods and error handling
-3. **Events**: Demonstrates real-time event communication
+1. **Counter**：演示有状态的服务绑定
+2. **Calculator**：演示多参数方法和错误处理
+3. **Events**：演示实时事件通信

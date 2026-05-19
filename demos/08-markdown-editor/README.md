@@ -1,32 +1,32 @@
-# Demo 08: Markdown Editor
+# Demo 08: Markdown 编辑器
 
-A full-featured Markdown editor desktop application — the capstone project of this tutorial.
+一个功能完整的 Markdown 编辑器桌面应用 —— 本教程的综合实战项目。
 
-## Features
+## 功能特性
 
-- **Split-pane editor**: Side-by-side editing and preview
-- **Real-time rendering**: Debounced markdown-to-HTML conversion
-- **File tree**: Navigate and open markdown files
-- **Theme switching**: Light and dark themes with CSS variables
-- **Keyboard shortcuts**: Cmd+S to save
-- **Auto-save**: Configurable auto-save support
-- **Status bar**: Line count, character count, theme info
-- **GFM support**: Tables, task lists, strikethrough, code blocks
+- **分栏编辑器**：左右并排的编辑和预览
+- **实时渲染**：防抖的 Markdown 转 HTML 渲染
+- **文件树**：浏览和打开 Markdown 文件
+- **主题切换**：亮色/暗色主题，基于 CSS 变量
+- **快捷键**：Cmd+S 保存
+- **自动保存**：可配置的自动保存支持
+- **状态栏**：行数、字符数、主题信息
+- **GFM 支持**：表格、任务列表、删除线、代码块
 
-## Run
+## 运行方式
 
 ```bash
 cd frontend && npm install && cd ..
 wails3 dev
 ```
 
-## Architecture
+## 架构
 
 ```
 ┌─────────────────────────────────────────┐
-│              Frontend (React)            │
+│              前端 (React)                │
 ├──────────┬──────────────┬───────────────┤
-│ FileTree │   Editor     │   Preview     │
+│  文件树  │    编辑器    │    预览       │
 │          │  (textarea)  │   (HTML)      │
 └────┬─────┴──────┬───────┴───────┬───────┘
      │            │               │
@@ -36,22 +36,22 @@ wails3 dev
 └──────────┴──────────────┴───────────────┘
 ```
 
-## Services
+## 服务说明
 
-- **MarkdownService**: Renders markdown to HTML using goldmark (GFM, tables, task lists)
-- **FileService**: File CRUD, directory tree reading, file creation/deletion
-- **ConfigService**: Persistent config (theme, font size, last folder)
+- **MarkdownService**：使用 goldmark 将 Markdown 渲染为 HTML（支持 GFM、表格、任务列表）
+- **FileService**：文件 CRUD、目录树读取、文件创建/删除
+- **ConfigService**：持久化配置（主题、字体大小、上次打开的文件夹）
 
-## Config Storage
+## 配置存储
 
-Configuration is stored in `~/.wails-markdown-editor/config.json`.
+配置文件存储在 `~/.wails-markdown-editor/config.json`。
 
-## Key Concepts
+## 核心概念
 
-- Multiple services working together
-- Debounced rendering for performance
-- CSS Variables for theming
-- Keyboard event handling
-- Persistent user preferences
-- File system integration
-- Split-pane responsive layout
+- 多个 Service 协同工作
+- 防抖渲染提升性能
+- CSS 变量实现主题切换
+- 键盘事件处理
+- 用户偏好持久化
+- 文件系统集成
+- 分栏响应式布局

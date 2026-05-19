@@ -1,45 +1,45 @@
-# Demo 06: System Monitor
+# Demo 06: 系统监控面板
 
-A real-time system monitoring dashboard demonstrating advanced event communication and live data updates.
+一个实时系统监控仪表盘，演示高级事件通信和实时数据更新。
 
-## Features
+## 功能特性
 
-- Real-time CPU and memory usage display
-- Progress bar visualizations
-- Usage history chart (text-based)
-- Detailed memory breakdown
-- Go runtime information
-- Force garbage collection
-- Dark theme dashboard
+- 实时 CPU 和内存使用率展示
+- 进度条可视化
+- 使用历史图表（文本形式）
+- 详细内存信息分解
+- Go 运行时信息
+- 强制垃圾回收
+- 暗色主题仪表盘
 
-## Run
+## 运行方式
 
 ```bash
 cd frontend && npm install && cd ..
 wails3 dev
 ```
 
-## Key Concepts
+## 核心概念
 
-- Goroutine with `time.Ticker` for periodic data emission
-- `window.EmitEvent()` for real-time data push
-- `runtime.ReadMemStats()` for Go memory statistics
-- `runtime.NumGoroutine()` for goroutine count
-- Event cleanup with cancel functions
-- CSS Grid dashboard layout
-- History state management (sliding window)
+- 使用 Goroutine + `time.Ticker` 定时推送数据
+- `EmitEvent()` 实现实时数据推送
+- `runtime.ReadMemStats()` 获取 Go 内存统计
+- `runtime.NumGoroutine()` 获取 goroutine 数量
+- 事件取消函数实现清理
+- CSS Grid 仪表盘布局
+- 历史状态管理（滑动窗口）
 
-## Architecture
+## 架构
 
 ```
-Go Backend (goroutine)
-    │ every 2 seconds
+Go 后端 (goroutine)
+    │ 每 2 秒
     ▼
 EmitEvent("system-stats-update", stats)
     │
     ▼
-Frontend (EventsOn listener)
+前端 (Events.On 监听器)
     │
     ▼
-Update React state → Re-render UI
+更新 React 状态 → 重新渲染 UI
 ```

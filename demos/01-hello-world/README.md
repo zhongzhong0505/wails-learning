@@ -1,33 +1,33 @@
 # Demo 01: Hello World
 
-A minimal Wails v3 application demonstrating the basic project structure and service binding.
+一个最小化的 Wails v3 应用，演示基本的项目结构和服务绑定。
 
-## Features
+## 功能特性
 
-- Basic window creation
-- Simple service binding (GreetService)
-- React + TypeScript frontend
-- CSS styling
+- 基本窗口创建
+- 简单的服务绑定（GreetService）
+- React + TypeScript 前端
+- CSS 样式
 
-## Run
+## 运行方式
 
 ```bash
-# Install frontend dependencies
+# 安装前端依赖
 cd frontend && npm install && cd ..
 
-# Run in development mode
+# 以开发模式运行
 wails3 dev
 ```
 
-## Key Concepts
+## 核心概念
 
-- `main.go`: Application entry point with `application.New()` and `application.Options`
-- `greet_service.go`: A Go struct with exported methods that are bound to the frontend
-- `frontend/src/App.tsx`: React component calling Go methods via `window.go.main.GreetService`
+- `main.go`：应用入口，使用 `application.New()` 和 `application.Options` 配置应用
+- `greet_service.go`：一个 Go struct，其导出方法会自动绑定到前端
+- `frontend/src/App.tsx`：React 组件，通过自动生成的 bindings 调用 Go 方法
 
-## What You'll See
+## 运行效果
 
-A window with:
-1. An input field to enter your name
-2. A "Greet" button that calls the Go backend
-3. A "Get Wails Info" button showing framework details
+一个窗口，包含：
+1. 一个输入框，用于输入你的名字
+2. 一个 "Greet" 按钮，调用 Go 后端返回问候语
+3. 一个 "Get Wails Info" 按钮，展示框架信息
