@@ -5,6 +5,8 @@
 
 ## 📋 教程导航
 
+### 主线章节
+
 | 章节 | 主题 | Demo |
 |------|------|------|
 | [第一章](./docs/01-getting-started.md) | 认识 Wails v3 — 入门与环境搭建 | [hello-world](./demos/01-hello-world/) |
@@ -13,8 +15,29 @@
 | [第四章](./docs/04-backend-development.md) | Go 后端开发 — 服务与数据 | [notebook](./demos/04-notebook/) |
 | [第五章](./docs/05-native-features.md) | 系统能力 — 原生功能调用 | [file-manager](./demos/05-file-manager/) |
 | [第六章](./docs/06-advanced.md) | 高级特性 — 进阶开发 | [system-monitor](./demos/06-system-monitor/) |
-| [第七章](./docs/07-build-and-deploy.md) | 构建与发布 — 打包部署 | [build-scripts](./demos/07-build-scripts/) |
+| [第七章](./docs/07-build-and-deploy.md) | 构建与发布 — 打包部署 | [http-client](./demos/07-http-client/) |
 | [第八章](./docs/08-real-project.md) | 实战项目 — Markdown 编辑器 | [markdown-editor](./demos/08-markdown-editor/) |
+
+### 附录与进阶
+
+| 附录 | 主题 | Demo |
+|------|------|------|
+| [附录A](./docs/09-faq-and-debugging.md) | 调试技巧与常见问题排查（FAQ） | — |
+| [附录B](./docs/10-testing.md) | 测试专题 — 单元测试与集成测试 | — |
+| [附录C](./docs/11-cross-platform.md) | 跨平台适配指南 | — |
+| [附录D](./docs/12-security.md) | 安全性最佳实践 | — |
+| [附录E](./docs/13-state-management.md) | 状态管理进阶 | — |
+| [附录F](./docs/14-dev-tools.md) | 开发工具链 | — |
+| [附录G](./docs/15-logging.md) | 日志系统完整方案 | — |
+| [附录H](./docs/16-plugin-architecture.md) | 插件化架构设计 | — |
+
+### 进阶 Demo
+
+| Demo | 主题 | 核心知识点 |
+|------|------|-----------|
+| [custom-window](./demos/09-custom-window/) | 自定义无边框窗口 | Frameless、CSS drag region、平台适配 |
+| [system-tray](./demos/10-system-tray/) | 系统托盘 | 托盘图标/菜单、后台运行、窗口切换 |
+| [multi-window](./demos/11-multi-window/) | 多窗口通信 | 动态创建窗口、广播事件、共享数据同步 |
 
 ## 🚀 快速开始
 

@@ -1,0 +1,25 @@
+version: '3'
+
+vars:
+  APP_NAME: "file-manager"
+  BIN_DIR: "bin"
+  VITE_PORT: '{{.WAILS_VITE_PORT | default 9245}}'
+
+includes:
+  common: ./build/Taskfile.yml
+
+tasks:
+  build:
+    summary: Builds the application
+    cmds:
+      - task: common:build
+
+  run:
+    summary: Runs the application
+    cmds:
+      - ./{{.BIN_DIR}}/{{.APP_NAME}}
+
+  dev:
+    summary: Runs the application in development mode
+    cmds:
+      - wails3 dev -config ./build/config.yml -port {{.VITE_PORT}}
