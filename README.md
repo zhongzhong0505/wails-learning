@@ -30,6 +30,7 @@
 | [附录F](./docs/14-dev-tools.md) | 开发工具链 | — |
 | [附录G](./docs/15-logging.md) | 日志系统完整方案 | — |
 | [附录H](./docs/16-plugin-architecture.md) | 插件化架构设计 | — |
+| [附录I](./docs/17-native-interactions.md) | 系统通知/拖放/快捷键/Deep Link/自动更新/i18n | — |
 
 ### 进阶 Demo
 
@@ -38,6 +39,7 @@
 | [custom-window](./demos/09-custom-window/) | 自定义无边框窗口 | Frameless、CSS drag region、平台适配 |
 | [system-tray](./demos/10-system-tray/) | 系统托盘 | 托盘图标/菜单、后台运行、窗口切换 |
 | [multi-window](./demos/11-multi-window/) | 多窗口通信 | 动态创建窗口、广播事件、共享数据同步 |
+| [native-interactions](./demos/12-native-interactions/) | 原生交互综合 | 拖放文件、快捷键、右键菜单、通知 |
 
 ## 🚀 快速开始
 

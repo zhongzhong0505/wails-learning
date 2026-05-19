@@ -1,0 +1,20 @@
+version: '3'
+
+vars:
+  APP_NAME: "native-interactions"
+  BIN_DIR: "bin"
+  VITE_PORT: '{{.WAILS_VITE_PORT | default 9245}}'
+
+includes:
+  common: ./build/Taskfile.yml
+
+tasks:
+  build:
+    cmds:
+      - task: common:build
+  run:
+    cmds:
+      - ./{{.BIN_DIR}}/{{.APP_NAME}}
+  dev:
+    cmds:
+      - wails3 dev -config ./build/config.yml -port {{.VITE_PORT}}
