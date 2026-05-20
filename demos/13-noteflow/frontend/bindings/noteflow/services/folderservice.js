@@ -48,22 +48,6 @@ export function GetAll() {
 }
 
 /**
- * OnShutdown is called when the app exits. DB is shared, so no close here.
- * @returns {$CancellablePromise<void>}
- */
-export function OnShutdown() {
-    return $Call.ByID(543644764);
-}
-
-/**
- * OnStartup initializes the database connection.
- * @returns {$CancellablePromise<void>}
- */
-export function OnStartup() {
-    return $Call.ByID(1052764703);
-}
-
-/**
  * Rename renames a folder.
  * @param {string} id
  * @param {string} name

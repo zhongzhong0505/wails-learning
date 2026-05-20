@@ -9,6 +9,7 @@ import (
 	"noteflow/models"
 
 	"github.com/google/uuid"
+	"github.com/wailsapp/wails/v3/pkg/application"
 )
 
 // FolderService manages folder CRUD operations.
@@ -21,8 +22,8 @@ func NewFolderService() *FolderService {
 	return &FolderService{}
 }
 
-// OnStartup initializes the database connection.
-func (s *FolderService) OnStartup(ctx context.Context) error {
+// ServiceStartup is called when the service starts (Wails v3 lifecycle).
+func (s *FolderService) ServiceStartup(_ context.Context, _ application.ServiceOptions) error {
 	db, err := GetDatabase()
 	if err != nil {
 		return fmt.Errorf("failed to initialize database: %w", err)
@@ -31,8 +32,8 @@ func (s *FolderService) OnStartup(ctx context.Context) error {
 	return nil
 }
 
-// OnShutdown is called when the app exits. DB is shared, so no close here.
-func (s *FolderService) OnShutdown() error {
+// ServiceShutdown is called when the app exits. DB is shared, so no close here.
+func (s *FolderService) ServiceShutdown() error {
 	return nil
 }
 

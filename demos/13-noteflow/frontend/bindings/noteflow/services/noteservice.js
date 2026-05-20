@@ -80,22 +80,6 @@ export function GetStats() {
 }
 
 /**
- * OnShutdown is called when the app exits. DB is shared, so no close here.
- * @returns {$CancellablePromise<void>}
- */
-export function OnShutdown() {
-    return $Call.ByID(1376207068);
-}
-
-/**
- * OnStartup initializes the database connection.
- * @returns {$CancellablePromise<void>}
- */
-export function OnStartup() {
-    return $Call.ByID(2168538015);
-}
-
-/**
  * Search searches notes by title or content using LIKE pattern matching.
  * @param {string} query
  * @returns {$CancellablePromise<models$0.Note[]>}
