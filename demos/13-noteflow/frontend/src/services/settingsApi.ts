@@ -1,6 +1,7 @@
 /**
- * Settings API service — calls Go SettingsService methods.
+ * Settings API service — re-exports Wails v3 auto-generated bindings with types.
  */
+import * as SettingsService from '../../bindings/noteflow/services/settingsservice.js'
 
 export interface AppInfo {
   version: string
@@ -8,12 +9,17 @@ export interface AppInfo {
   arch: string
 }
 
-async function callBackend(service: string, method: string, ...args: any[]): Promise<any> {
-  return (window as any).wails.Call.ByName(`noteflow/services.${service}.${method}`, ...args)
+function toAppInfo(m: any): AppInfo {
+  return {
+    version: m.version ?? m.Version ?? '',
+    platform: m.platform ?? m.Platform ?? '',
+    arch: m.arch ?? m.Arch ?? '',
+  }
 }
 
 export const settingsApi = {
   async getAppInfo(): Promise<AppInfo> {
-    return callBackend('SettingsService', 'GetAppInfo')
+    const result = await SettingsService.GetAppInfo()
+    return toAppInfo(result)
   },
 }

@@ -1,6 +1,7 @@
 /**
- * Folder API service — calls Go FolderService methods via Wails bindings.
+ * Folder API service — re-exports Wails v3 auto-generated bindings with types.
  */
+import * as FolderService from '../../bindings/noteflow/services/folderservice.js'
 
 export interface Folder {
   id: string
@@ -12,25 +13,35 @@ export interface Folder {
   note_count: number
 }
 
-// Call Go backend methods via Wails v3 bindings
-async function callBackend(service: string, method: string, ...args: any[]): Promise<any> {
-  return (window as any).wails.Call.ByName(`noteflow/services.${service}.${method}`, ...args)
+// Convert model instance to plain object
+function toFolder(m: any): Folder {
+  return {
+    id: m.id ?? m.ID ?? '',
+    name: m.name ?? m.Name ?? '',
+    icon: m.icon ?? m.Icon ?? '',
+    parent_id: m.parent_id ?? m.ParentID ?? null,
+    sort_order: m.sort_order ?? m.SortOrder ?? 0,
+    created_at: m.created_at ?? m.CreatedAt ?? '',
+    note_count: m.note_count ?? m.NoteCount ?? 0,
+  }
 }
 
 export const folderApi = {
   async getAll(): Promise<Folder[]> {
-    return callBackend('FolderService', 'GetAll')
+    const results = await FolderService.GetAll()
+    return (results || []).map(toFolder)
   },
 
   async create(name: string, icon?: string, parentId?: string): Promise<Folder> {
-    return callBackend('FolderService', 'Create', name, icon || '', parentId || null)
+    const result = await FolderService.Create(name, icon || '', parentId || null)
+    return toFolder(result)
   },
 
   async rename(id: string, name: string): Promise<void> {
-    return callBackend('FolderService', 'Rename', id, name)
+    await FolderService.Rename(id, name)
   },
 
   async delete(id: string): Promise<void> {
-    return callBackend('FolderService', 'Delete', id)
+    await FolderService.Delete(id)
   },
 }
