@@ -4,12 +4,28 @@ import (
 	"database/sql"
 	"os"
 	"path/filepath"
+	"sync"
 
 	_ "modernc.org/sqlite"
 )
 
-// InitDatabase creates and initializes the SQLite database.
-func InitDatabase() (*sql.DB, error) {
+var (
+	sharedDB   *sql.DB
+	dbOnce     sync.Once
+	dbInitErr  error
+)
+
+// GetDatabase returns the shared database instance (singleton).
+// Safe to call from multiple services concurrently.
+func GetDatabase() (*sql.DB, error) {
+	dbOnce.Do(func() {
+		sharedDB, dbInitErr = openDatabase()
+	})
+	return sharedDB, dbInitErr
+}
+
+// openDatabase creates and initializes the SQLite database.
+func openDatabase() (*sql.DB, error) {
 	// Create app data directory
 	home, err := os.UserHomeDir()
 	if err != nil {
@@ -24,6 +40,11 @@ func InitDatabase() (*sql.DB, error) {
 	dbPath := filepath.Join(dataDir, "noteflow.db")
 	db, err := sql.Open("sqlite", dbPath)
 	if err != nil {
+		return nil, err
+	}
+
+	// Verify connection works
+	if err := db.Ping(); err != nil {
 		return nil, err
 	}
 

@@ -48,7 +48,7 @@ export function GetAll() {
 }
 
 /**
- * OnShutdown closes the database connection.
+ * OnShutdown is called when the app exits. DB is shared, so no close here.
  * @returns {$CancellablePromise<void>}
  */
 export function OnShutdown() {

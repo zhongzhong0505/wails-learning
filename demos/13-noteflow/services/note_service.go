@@ -24,7 +24,7 @@ func NewNoteService() *NoteService {
 
 // OnStartup initializes the database connection.
 func (s *NoteService) OnStartup(ctx context.Context) error {
-	db, err := InitDatabase()
+	db, err := GetDatabase()
 	if err != nil {
 		return fmt.Errorf("failed to initialize database: %w", err)
 	}
@@ -32,11 +32,8 @@ func (s *NoteService) OnStartup(ctx context.Context) error {
 	return nil
 }
 
-// OnShutdown closes the database connection.
+// OnShutdown is called when the app exits. DB is shared, so no close here.
 func (s *NoteService) OnShutdown() error {
-	if s.db != nil {
-		return s.db.Close()
-	}
 	return nil
 }
 
