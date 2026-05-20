@@ -17,6 +17,7 @@
 | [第六章](./docs/06-advanced.md) | 高级特性 — 进阶开发 | [system-monitor](./demos/06-system-monitor/) |
 | [第七章](./docs/07-build-and-deploy.md) | 构建与发布 — 打包部署 | [http-client](./demos/07-http-client/) |
 | [第八章](./docs/08-real-project.md) | 实战项目 — Markdown 编辑器 | [markdown-editor](./demos/08-markdown-editor/) |
+| [第九章](./docs/18-full-project.md) | 大型实战 — NoteFlow 跨平台笔记应用 | [noteflow](./demos/13-noteflow/) |
 
 ### 附录与进阶
 
@@ -40,6 +41,7 @@
 | [system-tray](./demos/10-system-tray/) | 系统托盘 | 托盘图标/菜单、后台运行、窗口切换 |
 | [multi-window](./demos/11-multi-window/) | 多窗口通信 | 动态创建窗口、广播事件、共享数据同步 |
 | [native-interactions](./demos/12-native-interactions/) | 原生交互综合 | 拖放文件、快捷键、右键菜单、通知 |
+| [noteflow](./demos/13-noteflow/) | **大型完整项目** | 模块化架构、SQLite、Service分层、主题切换 |
 
 ## 🚀 快速开始
 
@@ -76,8 +78,9 @@ wails3 dev
 ```
 
 - **快速入门**：第1章 → 第2章 → 第3章（约 1 天）
-- **完整学习**：第1章 → 第8章 顺序学习（约 1-2 周）
-- **实战优先**：第1章 → 第2章 → 第8章 → 按需回看
+- **完整学习**：第1章 → 第9章 顺序学习（约 1-2 周）
+- **实战优先**：第1章 → 第2章 → 第9章 → 按需回看
+- **大型项目**：第9章 NoteFlow（模块化架构 + Service 分层）
 
 ## ⚠️ 版本说明
 
